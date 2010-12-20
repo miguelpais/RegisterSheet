@@ -1,6 +1,6 @@
 <div class="transaction">
 	<div class="in" id="LOL">
-		<table id="data">
+		<table id="in">
 			<tr>
 				<th>
 					<%= image_tag "in.png" %>
@@ -18,16 +18,22 @@
 				<th>Valor</th>
 			</tr>
 			<tr class="record">
-				<td class="edit"><%= image_tag "new.png"%></td>
+				<td class="edit"><%= image_tag "edit.png"%></td>
 				<td>123AB </td>
 				<td>Cheques do Senhor Silva</td>
 				<td align="right">4000€</td>
 			</tr>
 			<tr class="record">
-				<td class="edit"><%= image_tag "new.png"%></td>
+				<td class="edit"><%= image_tag "edit.png"%></td>
 				<td>123AB </td>
-				<td>Cheques do Senhor Silva</td>
+				<td>Cheques do Senhor Silva, o papa ranho, o que faz coco no penico que nao paga ha meses</td>
 				<td align="right">4000€</td>
+			</tr>
+			<tr>
+				<td><%= image_tag "new.png", :id => "new" %></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 		</table>
 	</div>

@@ -1,6 +1,6 @@
 <div class="transaction">
 	<div class="in" id="LOL">
-		<table id="in">
+		<table id="in" border="0" cellspacing="10">
 			<tr>
 				<th>
 					<%= image_tag "in.png" %>
@@ -9,7 +9,7 @@
 				<th class="title">
 					Entradas
 				</th>
-				<th></th>
+				<th><%= image_tag "new.png", :class => "new" %></th>
 			</tr>
 			<tr>
 				<th></th>
@@ -30,7 +30,7 @@
 				<td align="right">4000€</td>
 			</tr>
 			<tr>
-				<td><%= image_tag "new.png", :id => "new" %></td>
+				<td class="cancel"><%= image_tag "cancel.png"%></td>
 				<td></td>
 				<td></td>
 				<td></td>

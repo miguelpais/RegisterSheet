@@ -1,7 +1,7 @@
 class CreateTransactions < ActiveRecord::Migration
   def self.up
     create_table :transactions do |t|
-      t.integer :id
+      t.integer :ref
       t.text :desc
       t.integer :value
       t.timestamps

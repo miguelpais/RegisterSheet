@@ -22,10 +22,22 @@ th.title {
 	font-size:18px;
 }
 
-td.edit {
-	visibility:hidden;
+img.edit {
+	display:none;
 }
 
-td.cancel {
-	visibility:hidden;
+img.cancel {
+	display:none;
+}
+
+img.save {
+	display:none;
+}
+
+img.new {
+	display:block;	
+}
+
+tr {
+	height:30px;
 }

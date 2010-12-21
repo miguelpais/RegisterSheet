@@ -1,6 +1,6 @@
 <div class="transaction">
 	<div class="in" id="LOL">
-		<table id="in" border="0" cellspacing="10">
+		<table id="in">
 			<tr>
 				<th>
 					<%= image_tag "in.png" %>
@@ -9,28 +9,27 @@
 				<th class="title">
 					Entradas
 				</th>
-				<th><%= image_tag "new.png", :class => "new" %></th>
+				<th align="right">
+					<%= image_tag "new.png", :class => "new" %>
+					<%= image_tag "cancel.png", :class => "cancel"%>
+				</th>
 			</tr>
 			<tr>
-				<th></th>
-				<th>Nº </th>
-				<th>Descrição</th>
-				<th>Valor</th>
+				<th width="5%"></th>
+				<th width="10%">Nº </th>
+				<th width="60%">Descrição</th>
+				<th width="15%">Valor</th>
 			</tr>
+			<% @transactions.each do |t| %>
 			<tr class="record">
-				<td class="edit"><%= image_tag "edit.png"%></td>
-				<td>123AB </td>
-				<td>Cheques do Senhor Silva</td>
-				<td align="right">4000€</td>
+				<td><%= image_tag "edit.png", :class => "edit"%></td>
+				<td><%=t.ref%></td>
+				<td><%=t.desc%></td>
+				<td align="right"><%=t.value%> €</td>
 			</tr>
-			<tr class="record">
-				<td class="edit"><%= image_tag "edit.png"%></td>
-				<td>123AB </td>
-				<td>Cheques do Senhor Silva, o papa ranho, o que faz coco no penico que nao paga ha meses</td>
-				<td align="right">4000€</td>
-			</tr>
+			<% end %>
 			<tr>
-				<td class="cancel"><%= image_tag "cancel.png"%></td>
+				<td><%= image_tag "save.png", :class => "save" %></td>
 				<td></td>
 				<td></td>
 				<td></td>

@@ -3,7 +3,7 @@ class CreateTransactions < ActiveRecord::Migration
     create_table :transactions do |t|
       t.integer :ref
       t.text :desc
-      t.integer :value
+      t.float :value
       t.timestamps
     end
   end

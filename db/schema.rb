@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20101219153912) do
 
   create_table "checks", :force => true do |t|
     t.string   "entidade"
-    t.integer  "value"
+    t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20101219153912) do
   create_table "transactions", :force => true do |t|
     t.integer  "ref"
     t.text     "desc"
-    t.integer  "value"
+    t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

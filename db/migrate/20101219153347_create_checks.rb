@@ -3,7 +3,7 @@ class CreateChecks < ActiveRecord::Migration
     create_table :checks do |t|
       t.integer :id
       t.string :entidade
-      t.integer :value
+      t.float :value
       t.timestamps
     end
   end

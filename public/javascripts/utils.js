@@ -155,9 +155,9 @@ MYAPP.constructTableObject = function (spec) {
 			// for the post done to the server to add a new entry
 			
 			if (success !== "") {
-				this.id.getRows.last().replaceWith(success);
+				tableObj.getRows().last().replaceWith(success);
 
-				MYAPP.setEditAnimation("in");
+//				MYAPP.setEditAnimation("in");
 
 				saveButton.hide();
 				cancelButton.hide();
@@ -197,7 +197,7 @@ MYAPP.constructTableObject = function (spec) {
 				newButton.hide();
 				saveButton.display();
 		}
-	}
+	};
 	
 	var saveButton = {
 		id: function() {
@@ -232,7 +232,8 @@ MYAPP.constructTableObject = function (spec) {
 			this.id().css("display", "none");
 		},
 		click : function() {
-			this.hide();
+			cancelButton.hide();
+
 
 			var columns = tableObj.getLastRowColumns();
 			var length = columns.length;
@@ -258,7 +259,7 @@ MYAPP.constructTableObject = function (spec) {
 			return "<input type=\"text\" class=\"ref\" size=3\/>";
 		},
 		getValue : function() {
-			return this.id()[0].value();
+			return this.id()[0].value;
 		}
 	};
 	
@@ -273,7 +274,7 @@ MYAPP.constructTableObject = function (spec) {
 			return "<input type=\"text\" class=\"desc\" size=60\/>";
 		},
 		getValue : function() {
-			return this.id()[0].value();
+			return this.id()[0].value;
 		}
 	};
 	
@@ -288,7 +289,7 @@ MYAPP.constructTableObject = function (spec) {
 			return "<input type=\"text\" class=\"value\" size=8\/>";
 		},
 		getValue : function() {
-			return this.id()[0].value();
+			return this.id()[0].value;
 		}
 	};
 
@@ -325,8 +326,8 @@ $(document).ready(function() {
 	MYAPP.tables = [];
 	MYAPP.tables.push(MYAPP.constructTableObject({
 			tableId :"in",
-			sendData : function() { 
-				MYAPP.saveNewEntry(tableId, arguments);
+			saveEntry : function(ref, desc, value, callback) { 
+				MYAPP.saveNewEntry(this.tableId, ref, desc, value, callback);
 			}
 		}));
 /*	MYAPP.tables.push(MYAPP.constructTableObject({
@@ -339,29 +340,29 @@ $(document).ready(function() {
 	
 	// bind keyboard events
 	
-	$(document).keydown = function(event) {
-		if (event.keyCode == 13) {
+	$(document).keydown(function(event) {
+		if (event.keyCode == '13') {
 			// Enter/Return key
-			for(table in MYAPP.tables) {
-				if (MYAPP.tables.hasOwnProperty(table)) {
-					if (table.tableObj.entryMode === true) {
+			for(el in MYAPP.tables) {
+				if (MYAPP.tables.hasOwnProperty(el)) {
+					if (MYAPP.tables[el].tableObj.entryMode === true) {
 						//assigning Enter to whichever table is in EntryMode
-						table.saveButton.click();
+						MYAPP.tables[el].saveButton.click();
 						break;
 					}
 				}
 			}
 		}
-		else if (event.keyCode == 27) {
-			for(table in MYAPP.tables) {
-				if (MYAPP.tables.hasOwnProperty(table)) {
-					if (table.tableObj.entryMode === true) {
+		else if (event.keyCode == '27') {
+			for(el in MYAPP.tables) {
+				if (MYAPP.tables.hasOwnProperty(el)) {
+					if (MYAPP.tables[el].tableObj.entryMode === true) {
 						//assigning Esc to whichever table is in EntryMode
-						table.cancelButton.click();
+						MYAPP.tables[el].cancelButton.click();
 						break;
 					}
 				}
 			}
 		}
 	}
-});
+)});

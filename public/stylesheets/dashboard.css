@@ -12,7 +12,10 @@ div.out {
 	float:right;
 }
 
-div
+div.info {
+	height:40px;
+	font-weight:bold;
+}
 
 
 th.title {

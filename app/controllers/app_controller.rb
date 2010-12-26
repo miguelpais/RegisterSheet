@@ -2,6 +2,13 @@ class AppController < ApplicationController
   def dashboard
     @transactions_in = Transaction.find(:all, :conditions => ["value > 0"])
     @transactions_out = Transaction.find(:all, :conditions => ["value < 0"])
+    @balance = Transaction.get_balance
+  end
+  
+  def balance
+    if request.post?
+      render :text => Transaction.get_balance
+    end
   end
   
   def create

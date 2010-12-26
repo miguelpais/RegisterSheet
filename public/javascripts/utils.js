@@ -28,6 +28,7 @@ MYAPP.constructTableObject = function (spec) {
 				newButton.display();
 				
 				tableObj.entryMode = false;
+				MYAPP.balanceObj.refresh();
 			}
 		},
 		entryMode : false
@@ -177,7 +178,22 @@ MYAPP.constructTableObject = function (spec) {
 	saveButton.id().click(saveButton.click);
 	
 	return that;
-}
+};
+
+MYAPP.balanceObj = {
+	id : function() {
+		return $("#balance");
+	},
+	setBalance : function(balance) {
+		this.id()[0].innerHTML = balance;
+	},
+	refresh : function() {
+		var that = this;
+		$.post("/app/balance", function(success) {
+			that.setBalance(success);
+		});
+	}
+};
 
 MYAPP.saveNewEntry = function(table_id, ref, desc, value, callback) {
 	$.post("/app/create", 
@@ -186,4 +202,4 @@ MYAPP.saveNewEntry = function(table_id, ref, desc, value, callback) {
 					callback(success);
 				}
 	);
-}
+};

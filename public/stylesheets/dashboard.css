@@ -3,19 +3,17 @@ div.transaction {
 }
 
 div.in {
-	width:48%;
+	width:45%;
 	float:left;
 }
 
 div.out {
-	width:48%;
+	width:45%;
 	float:right;
 }
 
-table.data {
-	border:0px;
-	width:100%;
-}
+div
+
 
 th.title {
 	padding-bottom:10px;

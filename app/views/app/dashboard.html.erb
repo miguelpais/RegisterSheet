@@ -1,5 +1,5 @@
 <div class="transaction">
-	<div class="in" id="LOL">
+	<div class="in">
 		<table id="in">
 			<tr>
 				<th>
@@ -20,7 +20,7 @@
 				<th width="60%">Descrição</th>
 				<th width="15%">Valor</th>
 			</tr>
-			<% @transactions.each do |t| %>
+			<% @transactions_in.each do |t| %>
 			<tr class="record">
 				<td><%= image_tag "edit.png", :class => "edit"%></td>
 				<td><%=t.ref%></td>
@@ -37,5 +37,40 @@
 		</table>
 	</div>
 	<div class="out">
+			<table id="out">
+				<tr>
+					<th>
+						<%= image_tag "out.png" %>
+					</th>
+					<th></th>
+					<th class="title">
+						Saídas
+					</th>
+					<th align="right">
+						<%= image_tag "new.png", :class => "new" %>
+						<%= image_tag "cancel.png", :class => "cancel"%>
+					</th>
+				</tr>
+				<tr>
+					<th width="5%"></th>
+					<th width="10%">Nº </th>
+					<th width="60%">Descrição</th>
+					<th width="15%">Valor</th>
+				</tr>
+				<% @transactions_out.each do |t| %>
+				<tr class="record">
+					<td><%= image_tag "edit.png", :class => "edit"%></td>
+					<td><%=t.ref%></td>
+					<td><%=t.desc%></td>
+					<td align="right"><%=-t.value%> €</td>
+				</tr>
+				<% end %>
+				<tr>
+					<td><%= image_tag "save.png", :class => "save" %></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
 	</div>
 </div>

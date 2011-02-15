@@ -1,7 +1,17 @@
 class AppController < ApplicationController
+  require 'date'
+  
   def dashboard
-    @transactions_in = Transaction.find(:all, :conditions => ["value > 0"])
-    @transactions_out = Transaction.find(:all, :conditions => ["value < 0"])
+
+    @date = nil
+    if params[:id].nil? 
+      @date = Date.today
+     else
+       @date = Date.parse(params[:id])
+    end
+    
+    @transactions_in = Transaction.find(:all, :conditions => ["value > 0 AND date = ?", @date])
+    @transactions_out = Transaction.find(:all, :conditions => ["value < 0 AND date = ?", @date])
     @balance = Transaction.get_balance
   end
   

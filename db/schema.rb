@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101219153912) do
+ActiveRecord::Schema.define(:version => 20110214235946) do
 
   create_table "checks", :force => true do |t|
     t.string   "entidade"
     t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   create_table "coins", :force => true do |t|
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20101219153912) do
     t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
 end

@@ -122,7 +122,7 @@ MYAPP.constructTableObject = function (spec) {
 			this.id().focus();
 		},
 		getHTML : function() {
-			return "<input type=\"text\" class=\"ref\" size=3\/>";
+			return "<input type=\"text\" class=\"ref\" size=1\/>";
 		},
 		getValue : function() {
 			return refInputArea.id()[0].value;
@@ -137,7 +137,7 @@ MYAPP.constructTableObject = function (spec) {
 			this.id.focus();
 		},
 		getHTML : function() {
-			return "<input type=\"text\" class=\"desc\" size=60\/>";
+			return "<input type=\"text\" class=\"desc\" size=50\/>";
 		},
 		getValue : function() {
 			return descInputArea.id()[0].value;
@@ -152,7 +152,7 @@ MYAPP.constructTableObject = function (spec) {
 			this.id.focus();
 		},
 		getHTML : function() {
-			return "<input type=\"text\" class=\"value\" size=8\/>";
+			return "<input type=\"text\" class=\"value\" size=7\/>";
 		},
 		getValue : function() {
 			return valueInputArea.id()[0].value;

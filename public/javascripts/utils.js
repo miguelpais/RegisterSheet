@@ -197,7 +197,14 @@ MYAPP.balanceObj = {
 
 MYAPP.saveNewEntry = function(table_id, ref, desc, value, callback) {
 	$.post("/app/create", 
-				{entry_ref: ref, entry_desc: desc, entry_value: value, direction: table_id}, 
+				{	entry_ref: ref,
+					entry_desc: desc,
+					entry_value: value,
+					entry_year: MYAPP.date.getFullYear(),
+					entry_month: MYAPP.date.getMonth(),
+					entry_day: MYAPP.date.getDate(),
+					direction: table_id
+				}, 
 				function(success) {
 					callback(success);
 				}

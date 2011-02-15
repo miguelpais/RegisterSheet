@@ -26,6 +26,11 @@ class AppController < ApplicationController
       ref = params[:entry_ref]
       desc = params[:entry_desc]
       value = params[:entry_value].to_i
+      year = params[:entry_year].to_i
+      month = params[:entry_month].to_i + 1
+      day = params[:entry_day].to_i + 1
+      date = Date.civil(year,month, day)
+      
       direction = params[:direction]
       if (value <= 0 || (direction != "in" && direction != "out"))
         #abort
@@ -36,7 +41,7 @@ class AppController < ApplicationController
         value = -value
       end
       
-      a = Transaction.new(:ref => ref, :desc => desc, :value => value)
+      a = Transaction.new(:ref => ref, :desc => desc, :value => value, :date => date)
       if a.save
         response = "<tr class=\"record\">
   				<td><img src=\"\/images\/edit.png\" class=\"edit\" \/><\/td>
